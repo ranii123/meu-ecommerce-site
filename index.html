@@ -7,6 +7,16 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+<!-- Tela de login -->
+<section id="login-section">
+<h2>Login</h2>
+<input type="text" id="username" placeholder="Usuário" />
+<input type="password" id="password" placeholder="Senha" />
+<button id="login-button">Entrar</button>
+<p id="login-error" style="color:red; display:none;">Usuário ou senha incorretos</p>
+</section>
+<!-- Loja (escondida até login) -->
+<section id="store-section" style="display:none;">
 <header>
 <h1>Januário</h1>
 <input type="text" id="search" placeholder="Busca por nome..." />
@@ -17,6 +27,8 @@
 <ul id="cart-items"></ul>
 <p id="cart-total">Total: R$ 0.00</p>
 </section>
+</section>
 <script src="script.js"></script>
 </body>
 </html>
+ 

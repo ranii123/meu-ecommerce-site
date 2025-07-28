@@ -1,73 +1,77 @@
-* {
- box-sizing: border-box;
- margin: 0;
- padding: 0;
- font-family: 'Arial', sans-serif;
+const products = [
+
+  {
+
+    name: "Vestido Floral Roxo",
+
+    price: 129.90,
+
+    image: "https://via.placeholder.com/220x280.png?text=Vestido+Floral"
+
+  },
+
+  {
+
+    name: "Vestido Lilás Elegante",
+
+    price: 159.99,
+
+    image: "https://via.placeholder.com/220x280.png?text=Vestido+Lilás"
+
+  },
+
+  {
+
+    name: "Saia Midi Rosé",
+
+    price: 89.90,
+
+    image: "https://via.placeholder.com/220x280.png?text=Saia+Midi"
+
+  },
+
+  {
+
+    name: "Saia Plissada Lilás",
+
+    price: 99.90,
+
+    image: "https://via.placeholder.com/220x280.png?text=Saia+Plissada"
+
+  }
+
+];
+
+function renderProducts(productList) {
+
+  const section = document.getElementById("products");
+
+  section.innerHTML = "";
+
+  productList.forEach(product => {
+
+    section.innerHTML += `
+<div class="product">
+<img src="${product.image}" alt="${product.name}">
+<h3>${product.name}</h3>
+<p>R$ ${product.price.toFixed(2)}</p>
+<button>Adicionar ao carrinho</button>
+</div>
+
+    `;
+
+  });
+
 }
-body {
- background-color: #fcefff;
- color: #4a0066;
+
+function filterProducts() {
+
+  const query = document.getElementById("search").value.toLowerCase();
+
+  const filtered = products.filter(p => p.name.toLowerCase().includes(query));
+
+  renderProducts(filtered);
+
 }
-header {
- background-color: #b266ff;
- padding: 20px;
- text-align: center;
- color: white;
-}
-header h1 {
- font-size: 2.5em;
- margin-bottom: 10px;
-}
-header input {
- padding: 10px;
- width: 60%;
- max-width: 400px;
- border-radius: 8px;
- border: none;
-}
-main {
- padding: 30px;
- display: flex;
- justify-content: center;
-}
-#products {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
- gap: 20px;
- width: 100%;
- max-width: 900px;
-}
-.product {
- background-color: #e5ccff;
- border-radius: 12px;
- padding: 15px;
- text-align: center;
- box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
-}
-.product img {
- width: 100%;
- border-radius: 8px;
-}
-.product h3 {
- margin: 10px 0 5px;
-}
-.product p {
- font-weight: bold;
- color: #6a00b3;
-}
-.product button {
- margin-top: 10px;
- padding: 8px 12px;
- background-color: #8000ff;
- color: white;
- border: none;
- border-radius: 6px;
- cursor: pointer;
-}
-footer {
- margin-top: 40px;
- text-align: center;
- padding: 15px;
- background-color: #b266ff;
- color: white;
-}
+
+renderProducts(products);

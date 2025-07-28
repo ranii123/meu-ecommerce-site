@@ -1,62 +1,84 @@
 body {
 
-  font-family: Arial, sans-serif;
-
-  background-color: #f9f5ff;
-
-  color: #4b0082;
+  font-family: 'Segoe UI', sans-serif;
 
   margin: 0;
 
-  padding: 0;
+  background: #f7f2fa;
+
+  color: #333;
 
 }
 
 header {
 
-  background-color: #d8b4f8;
+  background: linear-gradient(to right, #b388eb, #d8b4f8);
+
+  color: white;
 
   padding: 20px;
 
   text-align: center;
 
-  color: #4b0082;
+}
+
+#search {
+
+  margin-top: 10px;
+
+  padding: 8px;
+
+  width: 60%;
+
+  max-width: 400px;
+
+  border-radius: 5px;
+
+  border: none;
 
 }
 
-.products {
+main {
 
   display: flex;
 
   flex-wrap: wrap;
 
-  justify-content: center;
+  padding: 20px;
+
+}
+
+.product-list {
+
+  flex: 3;
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 
   gap: 20px;
-
-  padding: 20px;
 
 }
 
 .product {
 
-  background-color: #fff;
+  background: white;
 
-  border: 2px solid #d8b4f8;
+  border-radius: 10px;
 
-  border-radius: 8px;
-
-  padding: 10px;
-
-  width: 200px;
+  padding: 15px;
 
   text-align: center;
+
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 
 }
 
 .product img {
 
-  width: 100%;
+  max-width: 100%;
+
+  height: auto;
 
   border-radius: 5px;
 
@@ -64,15 +86,15 @@ header {
 
 button {
 
-  background-color: #c084fc;
+  margin-top: 10px;
+
+  background-color: #b388eb;
 
   color: white;
 
   border: none;
 
-  padding: 8px;
-
-  margin-top: 10px;
+  padding: 8px 12px;
 
   border-radius: 5px;
 
@@ -80,11 +102,33 @@ button {
 
 }
 
+button:hover {
+
+  background-color: #9c6de2;
+
+}
+
 .cart {
 
-  background-color: #ede9fe;
+  flex: 1;
 
-  padding: 20px;
+  padding: 15px;
+
+  background: #fff0ff;
+
+  margin-left: 20px;
+
+  border-radius: 10px;
+
+  max-width: 300px;
+
+}
+
+.cart ul {
+
+  list-style: none;
+
+  padding: 0;
 
 }
 
@@ -94,27 +138,9 @@ button {
 
   display: flex;
 
+  justify-content: space-between;
+
   align-items: center;
 
-  gap: 10px;
-
 }
-
-.cart li img {
-
-  width: 50px;
-
-  height: auto;
-
-  border-radius: 5px;
-
-}
-
-.cart li button {
-
-  margin-left: auto;
-
-  background-color: #ff6961;
-
-}
-
+ 

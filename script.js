@@ -6,7 +6,7 @@ const produtos = [
 
     preco: 129.90,
 
-    imagem: "https://i.imgur.com/wsp6GMz.jpg"
+    imagem: "https://media.istockphoto.com/id/1465509961/pt/foto/waist-up-portrait-posing-young-brazilian-woman-with-hat-and-dress-smiling-happy-on-a-boat-on-a.jpg?s=2048x2048&w=is&k=20&c=EiWyBoNaZt68p8GwHbdmAhNwY3KQy279PsBvHCc3-f0="
 
   },
 

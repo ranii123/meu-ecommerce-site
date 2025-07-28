@@ -2,69 +2,58 @@ const products = [
 
   {
 
-    name: "Vestido Floral Roxo",
+    name: "Vestido Lilás Floral",
+
+    price: 149.90,
+
+    image: "https://i.imgur.com/zT7Fbsi.jpg"
+
+  },
+
+  {
+
+    name: "Vestido Curto Roxo",
 
     price: 129.90,
 
-    description: "Vestido leve com estampa floral em tons roxos, perfeito para ocasiões especiais.",
-
-    image: "https://via.placeholder.com/220x280.png?text=Vestido+Floral"
+    image: "https://i.imgur.com/Ti9ETVf.jpg"
 
   },
 
   {
 
-    name: "Vestido Lilás Elegante",
-
-    price: 159.99,
-
-    description: "Vestido lilás com corte elegante, ideal para eventos formais.",
-
-    image: "https://via.placeholder.com/220x280.png?text=Vestido+Lilás"
-
-  },
-
-  {
-
-    name: "Saia Midi Rosé",
+    name: "Saia Longa Lavanda",
 
     price: 89.90,
 
-    description: "Saia midi rosé com tecido confortável e design moderno.",
-
-    image: "https://via.placeholder.com/220x280.png?text=Saia+Midi"
+    image: "https://i.imgur.com/xQZTQ2a.jpg"
 
   },
 
   {
 
-    name: "Saia Plissada Lilás",
+    name: "Saia Plissada Roxa",
 
     price: 99.90,
 
-    description: "Saia plissada lilás, leve e estilosa para o dia a dia.",
-
-    image: "https://via.placeholder.com/220x280.png?text=Saia+Plissada"
+    image: "https://i.imgur.com/kGG95Dd.jpg"
 
   }
 
 ];
 
-let cart = [];
+const cart = [];
 
-function renderProducts(productList) {
+function renderProducts() {
 
-  const section = document.getElementById("products");
+  const list = document.getElementById("product-list");
 
-  section.innerHTML = "";
+  products.forEach((product, index) => {
 
-  productList.forEach((product, index) => {
-
-    section.innerHTML += `
+    list.innerHTML += `
 <div class="product">
 <img src="${product.image}" alt="${product.name}">
 <h3>${product.name}</h3>
-<p><em>${product.description}</em></p>
 <p>R$ ${product.price.toFixed(2)}</p>
 <button onclick="addToCart(${index})">Adicionar ao carrinho</button>
 </div>
@@ -75,63 +64,41 @@ function renderProducts(productList) {
 
 }
 
-function addToCart(index) {
-
-  const product = products[index];
-
-  const itemInCart = cart.find(item => item.name === product.name);
-
-  if (itemInCart) {
-
-    itemInCart.quantity++;
-
-  } else {
-
-    cart.push({ ...product, quantity: 1 });
-
-  }
-
-  renderCart();
-
-}
-
 function renderCart() {
 
-  let cartSection = document.getElementById("cart");
+  const list = document.getElementById("cart-items");
 
-  if (!cartSection) {
+  const total = document.getElementById("cart-total");
 
-    cartSection = document.createElement("section");
-cartSection.id = "cart";
+  list.innerHTML = "";
 
-    document.body.appendChild(cartSection);
+  let sum = 0;
 
-  }
+  cart.forEach((item, index) => {
 
-  if (cart.length === 0) {
+    list.innerHTML += `
+<li>
+<img src="${item.image}" alt="${item.name}">
 
-    cartSection.innerHTML = "<h2>Carrinho vazio</h2>";
+        ${item.name} - R$ ${item.price.toFixed(2)}
+<button onclick="removeFromCart(${index})">X</button>
+</li>
 
-    return;
+    `;
 
-  }
-
-  let html = "<h2>Carrinho de Compras</h2><ul>";
-
-  let total = 0;
-
-  cart.forEach((item, i) => {
-
-    total += item.price * item.quantity;
-
-    html += `<li>${item.name} - ${item.quantity} x R$ ${item.price.toFixed(2)} 
-<button onclick="removeFromCart(${i})">Remover</button></li>`;
+    sum += item.price;
 
   });
 
-  html += `</ul><p><strong>Total: R$ ${total.toFixed(2)}</strong></p>`;
+  total.textContent = `Total: R$ ${sum.toFixed(2)}`;
 
-  cartSection.innerHTML = html;
+}
+
+function addToCart(index) {
+
+  cart.push(products[index]);
+
+  renderCart();
 
 }
 
@@ -143,21 +110,5 @@ function removeFromCart(index) {
 
 }
 
-function filterProducts() {
-
-  const query = document.getElementById("search").value.toLowerCase();
-
-  const filtered = products.filter(p => p.name.toLowerCase().includes(query));
-
-  renderProducts(filtered);
-
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-
-  renderProducts(products);
-
-  renderCart();
-
-});
+renderProducts();
  

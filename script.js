@@ -6,7 +6,7 @@ const produtos = [
 
     preco: 129.90,
 
-    imagem: 
+    imagem: "https://i.imgur.com/wsp6GMz.jpg"
 
   },
 

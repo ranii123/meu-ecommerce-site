@@ -6,7 +6,8 @@ const products = [
 
     price: 149.90,
 
-    image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fladydress.com.br%2Fvestido-longo-antonela-lilas&psig=AOvVaw1mnEPe51z0qVhPCcus25Rw&ust=1753808720668000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCPCkjeGE4I4DFQAAAAAdAAAAABAE"
+    image: "https://i.imgur.com/zT7Fbsi.jpg"
+
   },
 
   {
@@ -15,7 +16,8 @@ const products = [
 
     price: 129.90,
 
-    image: 
+    image: "https://i.imgur.com/Ti9ETVf.jpg"
+
   },
 
   {
@@ -109,3 +111,4 @@ function removeFromCart(index) {
 }
 
 renderProducts();
+ 

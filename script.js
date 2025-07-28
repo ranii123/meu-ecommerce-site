@@ -87,7 +87,7 @@ function addToCart(index) {
 
   } else {
 
-    cart.push({...product, quantity: 1});
+    cart.push({ ...product, quantity: 1 });
 
   }
 
@@ -153,7 +153,11 @@ function filterProducts() {
 
 }
 
-renderProducts(products);
+document.addEventListener("DOMContentLoaded", function () {
 
-renderCart();
+  renderProducts(products);
+
+  renderCart();
+
+});
  

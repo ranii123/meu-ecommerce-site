@@ -2,55 +2,65 @@ const products = [
 
   {
 
-    name: "Vestido Lilás Floral",
+    name: "Vestido Floral Roxo",
 
-    price: 149.90,
+    category: "vestido",
 
-    image: "https://i.imgur.com/zT7Fbsi.jpg"
+    price: 129.99,
 
-  },
-
-  {
-
-    name: "Vestido Curto Roxo",
-
-    price: 129.90,
-
-    image: "https://i.imgur.com/Ti9ETVf.jpg"
+    image: "https://i.imgur.com/Ou0bKST.jpg"
 
   },
 
   {
 
-    name: "Saia Longa Lavanda",
+    name: "Vestido Midi Lilás",
+
+    category: "vestido",
+
+    price: 159.90,
+
+    image: "https://i.imgur.com/lbZfr7k.jpg"
+
+  },
+
+  {
+
+    name: "Saia Plissada Lavanda",
+
+    category: "saia",
 
     price: 89.90,
 
-    image: "https://i.imgur.com/xQZTQ2a.jpg"
+    image: "https://i.imgur.com/BTC9WgE.jpg"
 
   },
 
   {
 
-    name: "Saia Plissada Roxa",
+    name: "Saia Curta Roxa",
 
-    price: 99.90,
+    category: "saia",
 
-    image: "https://i.imgur.com/kGG95Dd.jpg"
+    price: 74.50,
+
+    image: "https://i.imgur.com/MZYzKht.jpg"
 
   }
 
 ];
 
-const cart = [];
+let cart = [];
 
-function renderProducts() {
+function renderProducts(prodList) {
 
-  const list = document.getElementById("product-list");
+  const container = document.getElementById("products");
 
-  products.forEach((product, index) => {
+  container.innerHTML = "";
 
-    list.innerHTML += `
+  prodList.forEach((product, index) => {
+
+    container.innerHTML += `
 <div class="product">
 <img src="${product.image}" alt="${product.name}">
 <h3>${product.name}</h3>
@@ -78,7 +88,6 @@ function renderCart() {
 
     list.innerHTML += `
 <li>
-<img src="${item.image}" alt="${item.name}">
 
         ${item.name} - R$ ${item.price.toFixed(2)}
 <button onclick="removeFromCart(${index})">X</button>
@@ -110,5 +119,27 @@ function removeFromCart(index) {
 
 }
 
-renderProducts();
+document.addEventListener("DOMContentLoaded", () => {
+
+  renderProducts(products);
+
+  renderCart();
+
+  document.getElementById("search").addEventListener("input", function () {
+
+    const value = this.value.toLowerCase();
+
+    const filtered = products.filter(p =>
+
+      p.name.toLowerCase().includes(value) ||
+
+      p.category.toLowerCase().includes(value)
+
+    );
+
+    renderProducts(filtered);
+
+  });
+
+});
  

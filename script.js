@@ -50,13 +50,13 @@ const carrinhoTotal = document.getElementById("cart-total");
 
 const campoBusca = document.getElementById("search");
 
-const loginSection = document.getElementById("login-section");
-
-const storeSection = document.getElementById("store-section");
-
 const loginButton = document.getElementById("login-button");
 
 const loginError = document.getElementById("login-error");
+
+const loginSection = document.getElementById("login-section");
+
+const storeSection = document.getElementById("store-section");
 
 let carrinho = [];
 
@@ -112,13 +112,9 @@ function atualizarCarrinho() {
 
     li.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
 
-    // Botão remover
-
     const btnRemover = document.createElement("button");
 
     btnRemover.textContent = "Remover";
-
-    btnRemover.style.marginLeft = "10px";
 
     btnRemover.onclick = () => removerDoCarrinho(i);
 
@@ -149,8 +145,6 @@ loginButton.addEventListener("click", () => {
   const username = document.getElementById("username").value.trim();
 
   const password = document.getElementById("password").value.trim();
-
-  // Aqui você pode mudar para seu usuário/senha desejados
 
   if (username === "admin" && password === "1234") {
 

@@ -1,114 +1,120 @@
-const products = [
+const produtos = [
 
   {
 
-    name: "Vestido Lilás Floral",
+    nome: "Vestido Floral Roxo",
 
-    price: 149.90,
+    preco: 129.90,
 
-    image: "https://i.imgur.com/zT7Fbsi.jpg"
+    imagem: "https://i.imgur.com/wsp6GMz.jpg"
 
   },
 
   {
 
-    name: "Vestido Curto Roxo",
+    nome: "Vestido Midi Lilás",
 
-    price: 129.90,
+    preco: 159.90,
 
-    image: "https://i.imgur.com/Ti9ETVf.jpg"
-
-  },
-
-  {
-
-    name: "Saia Longa Lavanda",
-
-    price: 89.90,
-
-    image: "https://i.imgur.com/xQZTQ2a.jpg"
+    imagem: "https://i.imgur.com/8dNtsVd.jpg"
 
   },
 
   {
 
-    name: "Saia Plissada Roxa",
+    nome: "Saia Plissada Lavanda",
 
-    price: 99.90,
+    preco: 89.90,
 
-    image: "https://i.imgur.com/kGG95Dd.jpg"
+    imagem: "https://i.imgur.com/xp1gqbv.jpg"
+
+  },
+
+  {
+
+    nome: "Saia Midi Roxa",
+
+    preco: 99.90,
+
+    imagem: "https://i.imgur.com/xIvGHdd.jpg"
 
   }
 
 ];
 
-const cart = [];
+const listaProdutos = document.getElementById("product-list");
 
-function renderProducts() {
+const carrinhoItens = document.getElementById("cart-items");
 
-  const list = document.getElementById("product-list");
+const carrinhoTotal = document.getElementById("cart-total");
 
-  products.forEach((product, index) => {
+const campoBusca = document.getElementById("search");
 
-    list.innerHTML += `
-<div class="product">
-<img src="${product.image}" alt="${product.name}">
-<h3>${product.name}</h3>
-<p>R$ ${product.price.toFixed(2)}</p>
-<button onclick="addToCart(${index})">Adicionar ao carrinho</button>
-</div>
+let carrinho = [];
+
+function mostrarProdutos(lista) {
+
+  listaProdutos.innerHTML = "";
+
+  lista.forEach((produto, index) => {
+
+    const div = document.createElement("div");
+
+    div.className = "product";
+
+    div.innerHTML = `
+<img src="${produto.imagem}" alt="${produto.nome}">
+<h3>${produto.nome}</h3>
+<p>R$ ${produto.preco.toFixed(2)}</p>
+<button onclick="adicionarAoCarrinho(${index})">Adicionar ao carrinho</button>
 
     `;
+
+    listaProdutos.appendChild(div);
 
   });
 
 }
 
-function renderCart() {
+function adicionarAoCarrinho(index) {
 
-  const list = document.getElementById("cart-items");
+  carrinho.push(produtos[index]);
 
-  const total = document.getElementById("cart-total");
+  atualizarCarrinho();
 
-  list.innerHTML = "";
+}
 
-  let sum = 0;
+function atualizarCarrinho() {
 
-  cart.forEach((item, index) => {
+  carrinhoItens.innerHTML = "";
 
-    list.innerHTML += `
-<li>
-<img src="${item.image}" alt="${item.name}">
+  let total = 0;
 
-        ${item.name} - R$ ${item.price.toFixed(2)}
-<button onclick="removeFromCart(${index})">X</button>
-</li>
+  carrinho.forEach((item) => {
 
-    `;
+    const li = document.createElement("li");
 
-    sum += item.price;
+    li.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
+
+    carrinhoItens.appendChild(li);
+
+    total += item.preco;
 
   });
 
-  total.textContent = `Total: R$ ${sum.toFixed(2)}`;
+  carrinhoTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
 
 }
 
-function addToCart(index) {
+campoBusca.addEventListener("input", () => {
 
-  cart.push(products[index]);
+  const termo = campoBusca.value.toLowerCase();
 
-  renderCart();
+  const resultado = produtos.filter(p => p.nome.toLowerCase().includes(termo));
 
-}
+  mostrarProdutos(resultado);
 
-function removeFromCart(index) {
+});
 
-  cart.splice(index, 1);
-
-  renderCart();
-
-}
-
-renderProducts();
+mostrarProdutos(produtos);
  

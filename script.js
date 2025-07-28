@@ -2,65 +2,55 @@ const products = [
 
   {
 
-    name: "Vestido Floral Roxo",
+    name: "Vestido Lilás Floral",
 
-    category: "vestido",
+    price: 149.90,
 
-    price: 129.99,
-
-    image: "https://i.imgur.com/Ou0bKST.jpg"
+    image: "https://i.imgur.com/zT7Fbsi.jpg"
 
   },
 
   {
 
-    name: "Vestido Midi Lilás",
+    name: "Vestido Curto Roxo",
 
-    category: "vestido",
+    price: 129.90,
 
-    price: 159.90,
-
-    image: "https://i.imgur.com/lbZfr7k.jpg"
+    image: "https://i.imgur.com/Ti9ETVf.jpg"
 
   },
 
   {
 
-    name: "Saia Plissada Lavanda",
-
-    category: "saia",
+    name: "Saia Longa Lavanda",
 
     price: 89.90,
 
-    image: "https://i.imgur.com/BTC9WgE.jpg"
+    image: "https://i.imgur.com/xQZTQ2a.jpg"
 
   },
 
   {
 
-    name: "Saia Curta Roxa",
+    name: "Saia Plissada Roxa",
 
-    category: "saia",
+    price: 99.90,
 
-    price: 74.50,
-
-    image: "https://i.imgur.com/MZYzKht.jpg"
+    image: "https://i.imgur.com/kGG95Dd.jpg"
 
   }
 
 ];
 
-let cart = [];
+const cart = [];
 
-function renderProducts(prodList) {
+function renderProducts() {
 
-  const container = document.getElementById("products");
+  const list = document.getElementById("product-list");
 
-  container.innerHTML = "";
+  products.forEach((product, index) => {
 
-  prodList.forEach((product, index) => {
-
-    container.innerHTML += `
+    list.innerHTML += `
 <div class="product">
 <img src="${product.image}" alt="${product.name}">
 <h3>${product.name}</h3>
@@ -88,6 +78,7 @@ function renderCart() {
 
     list.innerHTML += `
 <li>
+<img src="${item.image}" alt="${item.name}">
 
         ${item.name} - R$ ${item.price.toFixed(2)}
 <button onclick="removeFromCart(${index})">X</button>
@@ -119,27 +110,5 @@ function removeFromCart(index) {
 
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-
-  renderProducts(products);
-
-  renderCart();
-
-  document.getElementById("search").addEventListener("input", function () {
-
-    const value = this.value.toLowerCase();
-
-    const filtered = products.filter(p =>
-
-      p.name.toLowerCase().includes(value) ||
-
-      p.category.toLowerCase().includes(value)
-
-    );
-
-    renderProducts(filtered);
-
-  });
-
-});
+renderProducts();
  

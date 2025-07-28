@@ -219,4 +219,19 @@ footer {
   cursor: pointer;
 
 }
- 
+
+.cart li {
+ margin-bottom: 10px;
+ display: flex;
+ align-items: center;
+ gap: 10px;
+}
+.cart li img {
+ width: 50px;
+ height: auto;
+ border-radius: 5px;
+}
+.cart li button {
+ margin-left: auto;
+ background-color: #ff6961;
+}

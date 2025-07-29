@@ -1,208 +1,30 @@
-body {
-
-  font-family: Arial, sans-serif;
-
-  background-color: #f5e6ff;
-
-  margin: 0;
-
-  padding: 0;
-
-}
-
-header {
-
-  background-color: #b57edc;
-
-  padding: 20px;
-
-  text-align: center;
-
-  color: white;
-
-}
-
-header input {
-
-  margin-top: 10px;
-
-  padding: 8px;
-
-  width: 60%;
-
-  max-width: 300px;
-
-  border: none;
-
-  border-radius: 5px;
-
-}
-
-#product-list {
-
-  display: grid;
-
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
-  gap: 20px;
-
-  padding: 20px;
-
-}
-
-.product {
-
-  background-color: #fff;
-
-  border: 2px solid #d9b3ff;
-
-  border-radius: 10px;
-
-  padding: 15px;
-
-  text-align: center;
-
-}
-
-.product img {
-
-  width: 100%;
-
-  max-height: 250px;
-
-  object-fit: cover;
-
-  border-radius: 8px;
-
-}
-
-button {
-
-  margin-top: 10px;
-
-  padding: 10px;
-
-  background-color: #c084f5;
-
-  color: white;
-
-  border: none;
-
-  border-radius: 5px;
-
-  cursor: pointer;
-
-}
-
-button:hover {
-
-  background-color: #a455f2;
-
-}
-
-#cart {
-
-  background-color: #fff0ff;
-
-  border-top: 2px solid #d9b3ff;
-
-  padding: 20px;
-
-}
-
-#cart h2 {
-
-  color: #822aff;
-
-}
-
-#cart-items {
-
-  list-style: none;
-
-  padding: 0;
-
-}
-
-#cart-total {
-
-  font-weight: bold;
-
-  margin-top: 10px;
-
-}
-
-/* Tela de Login */
-
+/* seu CSS atual continua igual */
+/* Estilo para a tela de login */
 #login-section {
-
-  max-width: 300px;
-
-  margin: 100px auto;
-
-  text-align: center;
-
-  background: #fff;
-
-  padding: 20px;
-
-  border-radius: 10px;
-
-  box-shadow: 0 0 10px rgba(181, 126, 220, 0.5);
-
+ max-width: 300px;
+ margin: 100px auto;
+ text-align: center;
+ background: #fff;
+ padding: 20px;
+ border-radius: 10px;
+ box-shadow: 0 0 10px rgba(181, 126, 220, 0.5);
 }
-
 #login-section input {
-
-  display: block;
-
-  width: 90%;
-
-  margin: 10px auto;
-
-  padding: 10px;
-
-  border-radius: 5px;
-
-  border: 1px solid #b57edc;
-
+ display: block;
+ width: 90%;
+ margin: 10px auto;
+ padding: 10px;
+ border-radius: 5px;
+ border: 1px solid #b57edc;
 }
-
 #login-section button {
-
-  background-color: #b57edc;
-
-  color: white;
-
-  border: none;
-
-  padding: 10px 20px;
-
-  border-radius: 5px;
-
-  cursor: pointer;
-
+ background-color: #b57edc;
+ color: white;
+ border: none;
+ padding: 10px 20px;
+ border-radius: 5px;
+ cursor: pointer;
 }
-
 #login-section button:hover {
-
-  background-color: #822aff;
-
+ background-color: #822aff;
 }
-
-#cart-items button {
-
-  margin-left: 10px;
-
-  background-color: #f04e4e;
-
-  padding: 5px 10px;
-
-}
-
-#cart-items button:hover {
-
-  background-color: #d33636;
-
-}
- 

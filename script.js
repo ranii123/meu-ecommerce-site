@@ -7,7 +7,7 @@ const produtos = [
  {
    nome: "vestido perola",
    preco: 99.90,
-   imagem: "https://i.imgur.com/6s9JKYy.jpg"
+   imagem: "https://images.pexels.com/photos/18377576/pexels-photo-18377576.jpeg"
  },
  {
    nome: "saia midi lilas",

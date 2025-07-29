@@ -1,21 +1,21 @@
 const produtos = [
  {
-   nome: "Camisa Azul",
+   nome: "vestido flor",
    preco: 79.90,
    imagem: "https://i.imgur.com/Xcv0cK8.jpg"
  },
  {
-   nome: "Camisa Social",
+   nome: "vestido perola",
    preco: 99.90,
    imagem: "https://i.imgur.com/6s9JKYy.jpg"
  },
  {
-   nome: "Calça Jeans",
+   nome: "saia midi lilas",
    preco: 129.90,
    imagem: "https://i.imgur.com/KpVtoQH.jpg"
  },
  {
-   nome: "Calça Social",
+   nome: "saia longa",
    preco: 149.90,
    imagem: "https://i.imgur.com/LBLv8ab.jpg"
  }

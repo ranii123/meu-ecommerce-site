@@ -1,44 +1,55 @@
 const produtos = [
  {
-   nome: "Vestido Floral Roxo",
-   preco: 129.90,
-   imagem: "https://i.imgur.com/wsp6GMz.jpg"
+   nome: "Camisa Azul",
+   preco: 79.90,
+   imagem: "https://i.imgur.com/Xcv0cK8.jpg"
  },
  {
-   nome: "Vestido Midi Lilás",
-   preco: 159.90,
-   imagem: "https://i.imgur.com/8dNtsVd.jpg"
- },
- {
-   nome: "Saia Plissada Lavanda",
-   preco: 89.90,
-   imagem: "https://i.imgur.com/xp1gqbv.jpg"
- },
- {
-   nome: "Saia Midi Roxa",
+   nome: "Camisa Social",
    preco: 99.90,
-   imagem: "https://i.imgur.com/xIvGHdd.jpg"
+   imagem: "https://i.imgur.com/6s9JKYy.jpg"
+ },
+ {
+   nome: "Calça Jeans",
+   preco: 129.90,
+   imagem: "https://i.imgur.com/KpVtoQH.jpg"
+ },
+ {
+   nome: "Calça Social",
+   preco: 149.90,
+   imagem: "https://i.imgur.com/LBLv8ab.jpg"
  }
 ];
-const listaProdutos = document.getElementById("product-list");
-const carrinhoItens = document.getElementById("cart-items");
-const carrinhoTotal = document.getElementById("cart-total");
-const campoBusca = document.getElementById("search");
-const loginButton = document.getElementById("login-button");
-const loginError = document.getElementById("login-error");
 const loginSection = document.getElementById("login-section");
 const storeSection = document.getElementById("store-section");
+const loginButton = document.getElementById("login-button");
+const loginError = document.getElementById("login-error");
+const listaProdutos = document.getElementById("product-list");
+const carrinhoItems = document.getElementById("cart-items");
+const carrinhoTotal = document.getElementById("cart-total");
+const campoBusca = document.getElementById("search");
 let carrinho = [];
+loginButton.addEventListener("click", () => {
+ const u = document.getElementById("username").value.trim();
+ const p = document.getElementById("password").value.trim();
+ if (u === "admin" && p === "123") {
+   loginSection.style.display = "none";
+   storeSection.style.display = "block";
+   mostrarProdutos(produtos);
+ } else {
+   loginError.textContent = "Usuário ou senha incorretos.";
+ }
+});
 function mostrarProdutos(lista) {
  listaProdutos.innerHTML = "";
- lista.forEach((produto, index) => {
+ lista.forEach((produto, idx) => {
    const div = document.createElement("div");
    div.className = "product";
    div.innerHTML = `
 <img src="${produto.imagem}" alt="${produto.nome}">
 <h3>${produto.nome}</h3>
 <p>R$ ${produto.preco.toFixed(2)}</p>
-<button onclick="adicionarAoCarrinho(${index})">Adicionar ao carrinho</button>
+<button onclick="adicionarAoCarrinho(${idx})">Adicionar ao carrinho</button>
    `;
    listaProdutos.appendChild(div);
  });
@@ -52,16 +63,16 @@ function removerDoCarrinho(index) {
  atualizarCarrinho();
 }
 function atualizarCarrinho() {
- carrinhoItens.innerHTML = "";
+ carrinhoItems.innerHTML = "";
  let total = 0;
  carrinho.forEach((item, i) => {
-   const li = document.createElement("li");
-   li.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
-   const btnRemover = document.createElement("button");
-   btnRemover.textContent = "Remover";
-   btnRemover.onclick = () => removerDoCarrinho(i);
-   li.appendChild(btnRemover);
-   carrinhoItens.appendChild(li);
+   const div = document.createElement("div");
+   div.className = "cart-item";
+   div.innerHTML = `
+<span>${item.nome} - R$ ${item.preco.toFixed(2)}</span>
+<button onclick="removerDoCarrinho(${i})">Remover</button>
+   `;
+   carrinhoItems.appendChild(div);
    total += item.preco;
  });
  carrinhoTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
@@ -70,15 +81,4 @@ campoBusca.addEventListener("input", () => {
  const termo = campoBusca.value.toLowerCase();
  const resultado = produtos.filter(p => p.nome.toLowerCase().includes(termo));
  mostrarProdutos(resultado);
-});
-loginButton.addEventListener("click", () => {
- const username = document.getElementById("username").value.trim();
- const password = document.getElementById("password").value.trim();
- if (username === "admin" && password === "1234") {
-   loginSection.style.display = "none";
-   storeSection.style.display = "block";
-   mostrarProdutos(produtos);
- } else {
-   loginError.style.display = "block";
- }
 });

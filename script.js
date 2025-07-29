@@ -2,7 +2,7 @@ const produtos = [
  {
    nome: "vestido flor",
    preco: 79.90,
-   imagem: "https://i.imgur.com/Xcv0cK8.jpg"
+   imagem: "https://images.pexels.com/photos/33148751/pexels-photo-33148751.jpeg"
  },
  {
    nome: "vestido perola",
@@ -10,14 +10,14 @@ const produtos = [
    imagem: "https://images.pexels.com/photos/18377576/pexels-photo-18377576.jpeg"
  },
  {
-   nome: "saia midi lilas",
+   nome: "conjunto lilas",
    preco: 129.90,
-   imagem: "https://i.imgur.com/KpVtoQH.jpg"
+   imagem: "https://images.pexels.com/photos/17133981/pexels-photo-17133981.jpeg"
  },
  {
-   nome: "saia longa",
+   nome: "saia midi",
    preco: 149.90,
-   imagem: "https://i.imgur.com/LBLv8ab.jpg"
+   imagem: "https://images.pexels.com/photos/3952091/pexels-photo-3952091.jpeg"
  }
 ];
 const loginSection = document.getElementById("login-section");
